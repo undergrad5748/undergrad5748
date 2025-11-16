@@ -2,18 +2,49 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New Page</title>
+<title>One-Click Copy</title>
 <style>
-  body { font-family: sans-serif; max-width: 700px; margin: 40px auto; }
+  body { font-family: sans-serif; max-width: 750px; margin: 40px auto; line-height: 1.5; }
   #pass { padding:10px; font-size:16px; width:100%; }
   button { margin-top: 15px; padding: 10px 16px; font-size: 16px; cursor: pointer; }
+  #artistProfile { margin-bottom: 30px; border: 1px solid #ccc; padding: 20px; background-color: #fafafa; }
+  #artistProfile img { width: 100%; margin-bottom: 15px; border-radius: 4px; }
+  #artistProfile h3 { margin-top: 0; }
+  .article { margin-top: 25px; padding-top: 15px; border-top: 1px solid #ddd; }
+  .article img { width: 100%; margin: 10px 0; }
 </style>
 </head>
 <body>
 
 <div id="login">
-  <input type="password" id="pass" placeholder="Page under construction">
-  <button onclick="checkPass()">Button</button>
+
+  <div id="artistProfile">
+    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Artist portrait">
+    <h3>Alex Rivera</h3>
+    <p><strong>Medium:</strong> Digital Collage, Mixed Media</p>
+    <p><strong>Location:</strong> Brooklyn, NY</p>
+    <p>Alex Rivera blends surrealist digital collage with fragments of city life. His compositions splice subway textures, neon signage, and quiet street moments into layered dreamscapes. His most recent series focuses on “urban memory loss,” exploring how environments mutate faster than the people who inhabit them.</p>
+
+    <div class="article">
+      <h4>Recent Feature: “Fragments of the Concrete Dream”</h4>
+      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="Art studio">
+      <p>Rivera’s new collection investigates how the human eye reconstructs familiar spaces out of shifting visual noise. By distorting reflections and architectural lines, the work challenges the viewer to question what is real and what is stitched from imagination.</p>
+    </div>
+
+    <div class="article">
+      <h4>Studio Notes</h4>
+      <p>“I’m interested in the moments your brain glitches for a second,” Rivera explains. “A flicker on the window of a passing train, a shadow that looks like a person you haven’t seen in years—those tiny sensory misfires are the most honest moments in the whole day.”</p>
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Abstract art">
+    </div>
+
+    <div class="article">
+      <h4>Upcoming Interview</h4>
+      <p>Rivera will appear in the next issue of *Art Loop Quarterly* discussing the evolving role of digital ethics in collage-making and how AI-assisted texture blending opens unexpected creative pathways.</p>
+    </div>
+  </div>
+
+  <input type="password" id="pass" placeholder="Enter password">
+  <button onclick="checkPass()">Submit</button>
 </div>
 
 <textarea id="textContent" style="display:none;">
