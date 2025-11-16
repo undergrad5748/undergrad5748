@@ -7,19 +7,55 @@
   body { font-family: sans-serif; max-width: 700px; margin: 40px auto; }
   textarea { width: 100%; height: 300px; padding: 10px; font-size: 16px; }
   button { margin-top: 15px; padding: 10px 16px; font-size: 16px; cursor: pointer; }
+  #content { display: none; }
 </style>
 </head>
 <body>
 
-<h2>Your Text</h2>
+<div id="login">
+  <h2>Password Required</h2>
+  <input type="password" id="pass" placeholder="Enter password" style="padding:10px; font-size:16px; width:100%;">
+  <button style="margin-top:15px;" onclick="checkPass()">Submit</button>
+</div>
 
-<textarea id="textContent">
-Test 1234
+<div id="content">
+  <h2>Your Text</h2>
+
+  <textarea id="textContent">You are a restaurant note organizer. I will give you messy, disorganized notes about a table.
+Your task is to clean up the notes, organize them into the following categories: Visit, Water, Food, Bev, Notes, and expand the context naturally.
+Rules:
+1. Visit must always include: todays date, table number, “Fall Menu”, and occasion (if mentioned).
+2. Water must always be included. If not mentioned, default to "Tap"
+3. If a category no content, omit it.
+4. Expand shorthand or fragmented notes into complete, natural sentences while staying accurate.
+5. Do not use bullet points or indentation.
+6. Combine multiple drink items under Bev separated by commas.
+7. Food should list pairings, dietary restrictions, or other relevant details.
+8. Notes should summarize guest behavior, engagement level, personality, or special interactions.
+Format your output exactly like this:
+Visit: [Today’s Date], Table [Number], Fall Menu, [Occasion if any]
+Water: [Water type]
+Food: [Food items or restrictions]
+Bev: [Beverages]
+Notes: [Expanded notes about guest behavior, personality, or interactions]
 </textarea>
 
-<button onclick="copyText()">Copy All Text</button>
+  <button onclick="copyText()">Copy All Text</button>
+</div>
 
 <script>
+const PASSWORD = "test";
+
+function checkPass() {
+  const entered = document.getElementById("pass").value;
+  if (entered === PASSWORD) {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  } else {
+    alert("Wrong password");
+  }
+}
+
 function copyText() {
   const text = document.getElementById('textContent').value;
   navigator.clipboard.writeText(text)
