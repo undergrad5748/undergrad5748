@@ -1,16 +1,32 @@
-## Hi there 👋
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>One-Click Copy</title>
+<style>
+  body { font-family: sans-serif; max-width: 700px; margin: 40px auto; }
+  textarea { width: 100%; height: 300px; padding: 10px; font-size: 16px; }
+  button { margin-top: 15px; padding: 10px 16px; font-size: 16px; cursor: pointer; }
+</style>
+</head>
+<body>
 
-<!--
-**undergrad5748/undergrad5748** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<h2>Your Text</h2>
 
-Here are some ideas to get you started:
+<textarea id="textContent">
+Paste or edit your long text here before deploying... 
+</textarea>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<button onclick="copyText()">Copy All Text</button>
+
+<script>
+function copyText() {
+  const text = document.getElementById('textContent').value;
+  navigator.clipboard.writeText(text)
+    .then(() => alert("Copied!"))
+    .catch(err => alert("Copy failed: " + err));
+}
+</script>
+
+</body>
+</html>
