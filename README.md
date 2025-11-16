@@ -14,7 +14,7 @@
 <h2>Your Text</h2>
 
 <textarea id="textContent">
-Paste or edit your long text here before deploying... 
+Test 1234
 </textarea>
 
 <button onclick="copyText()">Copy All Text</button>
