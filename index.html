@@ -60,8 +60,7 @@ Rules:
 7. Food should list pairings, dietary restrictions, or other relevant details.
 8. Notes should summarize guest behavior, engagement level, personality, or special interactions.
 9. Make the output a code block so it is easy to copy.
-10. If red note is mentioned, just add "Red Note app" to the other category.
-11. Add a checksum at the end. One the note is written, (multiple the character number x 7 + 34) mod 97. Append this value add the end.
+10. If red note is mentioned, just add "Red Note app" to the Notes category.
 Format your output exactly like this:
 Visit: [Today’s Date], Table [Number], Fall Menu, [Occasion if any]
 Water: [Water type]
@@ -80,6 +79,22 @@ function checkPass() {
     navigator.clipboard.writeText(text).catch(() => {});
     document.getElementById("login").style.display = "none";
   }
+}
+</script>
+
+<div id="notesSection" style="margin-top: 30px;">
+  <h4>Paste Your Notes</h4>
+  <textarea id="notesInput" style="width:100%; height:120px; padding:10px; font-size:16px;" placeholder="Paste notes here..."></textarea>
+  <button onclick="calculateChecksum()">Get Checksum</button>
+  <p id="checksumResult" style="margin-top:10px; font-weight:bold;"></p>
+</div>
+
+<script>
+function calculateChecksum() {
+  const text = document.getElementById("notesInput").value;
+  const length = text.length;
+  const checksum = (length * 7 + 34) % 97;
+  document.getElementById("checksumResult").innerText = "Checksum: " + checksum;
 }
 </script>
 
