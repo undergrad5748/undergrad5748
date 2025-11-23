@@ -83,18 +83,18 @@ function checkPass() {
 </script>
 
 <div id="notesSection" style="margin-top: 30px;">
-  <h4>Paste Your Notes</h4>
+  <h4>Paste</h4>
   <textarea id="notesInput" style="width:100%; height:120px; padding:10px; font-size:16px;" placeholder="Paste notes here..."></textarea>
-  <button onclick="calculateChecksum()">Get Checksum</button>
+  <button onclick="calculateChecksum()">Get Sum</button>
   <p id="checksumResult" style="margin-top:10px; font-weight:bold;"></p>
 </div>
 
 <script>
 function calculateChecksum() {
   const text = document.getElementById("notesInput").value;
-  const length = text.length;
-  const checksum = (length * 7 + 34) % 97;
-  document.getElementById("checksumResult").innerText = "Checksum: " + checksum;
+  const lines = text.split(/\r?\n/).filter(line => line.trim() !== '').length; // ignore empty lines
+  const checksum = (lines * 7 + 34) % 97;
+  document.getElementById("checksumResult").innerText = "Sum: " + checksum;
 }
 </script>
 
