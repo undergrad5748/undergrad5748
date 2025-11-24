@@ -83,37 +83,10 @@ function checkPass() {
 </script>
 
 <p style="margin-top:20px;">
-<a href="checksum.html">Go to Full Checksum Page</a>
+<a href="checksum.html">Go</a>
 </p>
 
-<div id="notesSection" style="margin-top: 30px;">
-  <h4>Paste</h4>
-  <textarea id="notesInput" style="width:100%; height:120px; padding:10px; font-size:16px;" placeholder="Paste notes here..."></textarea>
-  <button onclick="calculateChecksum()">Get Sum6</button>
-  <p id="checksumResult" style="margin-top:10px; font-weight:bold;"></p>
-</div>
 
-<script>
-function calculateChecksum() {
-  let text = document.getElementById("notesInput").value;
-  
-  // 1. Remove ALL types of line breaks (newline characters)
-  // This joins the lines together for counting purposes
-  text = text.replace(/(\r\n|\n|\r)/gm, "");
-
-  // 2. Trim any extra space at the start/end
-  text = text.trim();
-
-  // 3. Get the count
-  const charCount = text.length; 
-  
-  // 4. Calculate checksum
-  const checksum = (charCount * 7 + 34) % 97;
-  
-  document.getElementById("checksumResult").innerText = 
-    "Sum: " + checksum + " (Count: " + charCount + ")";
-}
-</script>
 
 </body>
 </html>
