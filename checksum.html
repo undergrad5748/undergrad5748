@@ -54,24 +54,28 @@
 </div>
 
 <script>
-function calculateChecksum() {
-  let text = document.getElementById("notesInput").value;
+        function calculateChecksum() {
+            let text = document.getElementById("notesInput").value;
 
-  text = text.replace(/(\r\n|\n|\r)/gm, "");
-  text = text.trim();
+            // MODIFICATION: 
+            // The regex /\s/g matches any whitespace character (spaces, tabs, line breaks).
+            // Replacing them with "" effectively removes them.
+            text = text.replace(/\s/g, "");
 
-  const charCount = text.length;
-  const checksum = (charCount * 7 + 34) % 97;
+            const charCount = text.length;
+            
+            // Keep the original math logic
+            const checksum = (charCount * 7 + 34) % 97;
 
-  document.getElementById("checksumResult").innerText =
-    "check: " + checksum + " (C: " + charCount + ")";
-}
+            document.getElementById("checksumResult").innerText =
+                "check: " + checksum + " (C: " + charCount + ")";
+        }
 
-function clearText() {
-  document.getElementById("notesInput").value = "";
-  document.getElementById("checksumResult").innerText = "";
-}
-</script>
+        function clearText() {
+            document.getElementById("notesInput").value = "";
+            document.getElementById("checksumResult").innerText = "";
+        }
+    </script>
 
 </body>
 </html>
